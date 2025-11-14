@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toggle de Imagens</title>
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .click-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; /* área de clique ocupa a tela toda */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="imagem" src="imagem1.jpg" alt="Imagem 1" />
+    <div class="click-area" onclick="trocar()"></div>
+  </div>
+
+  <script>
+    let mostrandoPrimeira = true;
+
+    function trocar() {
+      const img = document.getElementById('imagem');
+
+      if (mostrandoPrimeira) {
+        img.src = 'imagem2.jpg';
+        mostrandoPrimeira = false;
+      } else {
+        img.src = 'imagem1.jpg';
+        mostrandoPrimeira = true;
+      }
+    }
+  </script>
+</body>
+</html>
